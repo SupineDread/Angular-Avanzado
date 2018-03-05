@@ -1,0 +1,10 @@
+<div class="col-lg-12" [@componentAnimation]>
+<h1>Nombre: {{nombre}}</h1>
+<h3>Metros: {{metros}}</h3>
+<h3>Vegetacion: {{vegetacion}}</h3>
+<span *ngIf="abierto else closed" class="open">Abierto</span>
+<ng-template #closed>
+  <span class="closed">Cerrado</span>
+</ng-template><br>
+<button (click)="emitirEvento()">Mostrar en el padre</button>
+</div>
