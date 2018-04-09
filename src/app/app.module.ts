@@ -45,10 +45,11 @@ import { userService } from './services/user.service';
     routing,
     BrowserAnimationsModule,
     ModuloEmailModule, 
-    AdminModule
+    AdminModule,
+    //appRoutingProviders
   ],
   providers: [
-    appRoutingProviders
+    //appRoutingProviders
   ],
   bootstrap: [AppComponent]
 })

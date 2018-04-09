@@ -10,6 +10,10 @@ import { AddComopnent } from "./components/add/add.component";
 
 import { AdminRoutingModule } from './admin-routing.module';
 
+import { AdminGuard } from '../services/admin.guard';
+
+import { userService } from '../services/user.service';
+
 @NgModule({
     declarations: [
         MainComponent, 
@@ -30,7 +34,8 @@ import { AdminRoutingModule } from './admin-routing.module';
         ListComponent
     ], 
     providers: [
-
+        AdminGuard,
+        userService
     ]
 })
 
