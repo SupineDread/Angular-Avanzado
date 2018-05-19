@@ -19,7 +19,7 @@ export class AnimalService {
   addAnimal(token, animal){
     let params = JSON.stringify(animal)
     let headers = new Headers({
-      'Content-type': 'application-json',
+      'Content-Type': 'application/json',
       'Authorization': token
     })
     return this._http.post(this.url+'animal', params, {headers: headers}).map(res => res.json())

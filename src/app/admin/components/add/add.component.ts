@@ -33,7 +33,7 @@ export class AddComopnent implements OnInit{
     private _uploadService: uploadService
   ){
     this.title = 'Añadir'
-    this.animal = new Animal('', '', 2018, '', '')
+    this.animal = new Animal('', '', '', 2018, '', '')
     this.identity = this._userService.getIdentity()
     this.token = this._userService.getToken()
     this.url = GLOBAL.url
@@ -47,16 +47,32 @@ export class AddComopnent implements OnInit{
     this._animalService.addAnimal(this.token, this.animal).subscribe(res => {
       if(!res.animalStored){
         this.status = 'error'
+        console.log(res)
       }else{
         this.status = 'success'
         this.animal = res.animalStored
         //subir la imagen del animal
-        this._router.navigate(['/admin-panel/listado'])
+        if(!this.filesToUpload){
+          this._router.navigate(['/admin-panel/listado'])
+        }else{
+          this._uploadService.makeFileRequest(this.url+'animal/image/'+this.animal._id, [], this.filesToUpload, this.token, 'image').then(
+            (result: any)=>{
+              this.animal.image = result.filename
+              this._router.navigate(['/admin-panel/listado'])
+            }
+          )
+        }
       }
     }, error => {
       let errorMessage = <any>error
       if(errorMessage != null) this.status = 'error'
+      console.log(this.status)
     })
+  }
+
+  public filesToUpload: Array<File>
+  fileChangeEvent(fileInput: any){
+    this.filesToUpload = <Array<File>>fileInput.target.files
   }
 
 }
