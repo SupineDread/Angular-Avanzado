@@ -24,6 +24,7 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 
 //Servicios
 import { userService } from './services/user.service';
+import { AnimalDetailComponent } from './components/animal-detail/animal-detail.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { userService } from './services/user.service';
     SimpleTinyComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    AnimalDetailComponent,
   ],
   imports: [
     BrowserModule,

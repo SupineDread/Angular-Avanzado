@@ -1,25 +1,54 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
+
+import { AnimalService } from '../../../services/animal.service';
+import { userService } from '../../../services/user.service';
+import { uploadService } from '../../../services/upload.service';
+import { GLOBAL } from '../../../services/global';
+import { Animal } from '../../../models/animal';
 
 @Component({
   selector: 'admin-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.css'],
+  providers: [AnimalService]
 })
-export class ListComponent {
-  title = 'listado';
-  //numbers = [0,1,2,3,4,5]
-  numbers = new Array(10)
-  animals: [{
-    name: string, 
-    year: string
-  }]
-  constructor(){
-    this.animals = [{
-      name: 'Oso panda',
-      year: '2016'
-    },{
-      name: 'Leon', 
-      year: '2018'
-    }]
+export class ListComponent implements OnInit {
+
+  public title: string
+  public animals: Animal[]
+  public token
+  public identity
+  public busqueda
+
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _userService: userService,
+    private _animalService: AnimalService,
+  ){
+    this.title = 'Listado'
+    this.identity = this._userService.getIdentity()
+    this.token = this._userService.getToken()
   }
+
+  ngOnInit(){
+    this._animalService.getAnimals().subscribe(res=>{
+      if(!res.animals) return
+      this.animals = res.animals
+    }, error => {
+      console.log('No se han podido obtener los animales')
+    })
+  }
+
+  deleteAnimal(id: String){
+    this._animalService.deleteAnimal(this.token, id).subscribe(response => {
+      if(!response.animal){
+        this.ngOnInit()
+      }
+    }, error => {
+      alert('Ha ocurrido un error')
+    })
+  }
+
 }

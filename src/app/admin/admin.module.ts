@@ -14,12 +14,15 @@ import { AdminGuard } from '../services/admin.guard';
 
 import { userService } from '../services/user.service';
 
+import { SearchPipe } from '../pipes/search.pipe';
+
 @NgModule({
     declarations: [
         MainComponent, 
         EditComponent, 
         AddComopnent, 
-        ListComponent
+        ListComponent, 
+        SearchPipe
     ], 
     imports: [
         CommonModule, 

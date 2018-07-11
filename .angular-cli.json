@@ -28,10 +28,10 @@
         "../node_modules/tinymce/plugins/link/plugin.js", 
         "../node_modules/tinymce/plugins/paste/plugin.js",
         "../node_modules/tinymce/plugins/table/plugin.js", 
+        "assets/js/bootstrap.min.js",
+        "assets/js/popper.min.js",
         "assets/js/jquery.min.js", 
-        "assets/js/jquery.dotdotdot.min.js", 
-        "assets/js/popper.min.js", 
-        "assets/js/bootstrap.min.js"
+        "assets/js/jquery.dotdotdot.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -1,6 +1,6 @@
 import { fundido } from './../animation';
 import { Component, OnInit } from '@angular/core';
-import {trigger, state, style, transition, animate} from '@angular/animations'
+import { trigger, state, style, transition, animate } from '@angular/animations'
 //Se puede declarar jquery de manera global en typings.d.ts
 //declare var JQuery: any;
 //declare var $:any;
