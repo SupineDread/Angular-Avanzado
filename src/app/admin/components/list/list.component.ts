@@ -3,14 +3,15 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { AnimalService } from '../../../services/animal.service';
 import { userService } from '../../../services/user.service';
-import { uploadService } from '../../../services/upload.service';
-import { GLOBAL } from '../../../services/global';
 import { Animal } from '../../../models/animal';
+
+import { fadeIn } from '../../animation';
 
 @Component({
   selector: 'admin-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
+  animations: [fadeIn],
   providers: [AnimalService]
 })
 export class ListComponent implements OnInit {

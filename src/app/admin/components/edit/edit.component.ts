@@ -6,11 +6,13 @@ import { userService } from '../../../services/user.service';
 import { uploadService } from '../../../services/upload.service';
 import { GLOBAL } from '../../../services/global';
 import { Animal } from '../../../models/animal';
+import { fadeIn } from '../../animation';
 
 @Component({
   selector: 'admin-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css'],
+  animations: [fadeIn],
   providers: [uploadService, AnimalService, userService]
 })
 export class EditComponent implements OnInit {

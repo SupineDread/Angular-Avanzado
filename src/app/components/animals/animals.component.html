@@ -1,5 +1,17 @@
 <div class="col-lg-12" [@componentAnimation]>
-<p>
-  animals works!
-</p>
+  <h1>{{ title }}</h1>
+      <div class="col-lg-3" *ngFor="let animal of animals" [routerLink]="['/animal', animal._id]">
+        <div class="thumbnail">
+          <div class="animal-image-mask">
+            <img *ngIf="!animal.image else noImage" src="{{ url + 'animal/image/' + animal.image }}" alt="{{animal.name}}">
+            <ng-template #noImage>
+                <img src="http://via.placeholder.com/250x200" alt="{{animal.name}}">
+              </ng-template>              
+          </div>
+          <div class="caption">
+            <h3>{{ animal.name }}</h3>
+            <p>{{ animal.year }}</p>
+          </div>
+        </div>
+      </div>
 </div>

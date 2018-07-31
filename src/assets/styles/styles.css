@@ -42,6 +42,17 @@
     height:45px;
 }
 
+.animal-image-mask, .keeper-image-mask {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.animal-image-mask img, .keeper-image-mask img {
+    max-height: 200px;
+    max-width: 250px;
+}
+
 .boton_transiciones{
     padding: 10px;
     background: red;

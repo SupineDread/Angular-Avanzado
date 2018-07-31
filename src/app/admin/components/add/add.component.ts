@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit, animate } from '@angular/core';
+import { Component, OnInit, animate } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { AnimalService } from '../../../services/animal.service';
@@ -6,11 +6,13 @@ import { userService } from '../../../services/user.service';
 import { uploadService } from '../../../services/upload.service';
 import { GLOBAL } from '../../../services/global';
 import { Animal } from '../../../models/animal';
+import { fadeIn } from '../../animation';
 
 @Component({
   selector: 'admin-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css'], 
+  animations: [fadeIn],
   providers: [
     userService, 
     AnimalService,

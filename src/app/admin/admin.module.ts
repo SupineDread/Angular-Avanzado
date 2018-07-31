@@ -15,6 +15,7 @@ import { AdminGuard } from '../services/admin.guard';
 import { userService } from '../services/user.service';
 
 import { SearchPipe } from '../pipes/search.pipe';
+import { BrowserAnimationsModule } from '../../../node_modules/@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { SearchPipe } from '../pipes/search.pipe';
         CommonModule, 
         FormsModule, 
         HttpModule, 
-        AdminRoutingModule
+        AdminRoutingModule,
+        BrowserAnimationsModule
     ], 
     exports: [
         MainComponent, 

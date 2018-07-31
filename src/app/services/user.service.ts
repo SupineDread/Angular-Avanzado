@@ -1,9 +1,7 @@
 import { Injectable } from "@angular/core";
-import { Http, Response, Headers } from "@angular/http";
+import { Http, Headers } from "@angular/http";
 import 'rxjs/add/operator/map';
-import { Observable } from "rxjs/Observable";
 import { GLOBAL } from "./global";
-import { identifierModuleUrl } from "@angular/compiler";
 
 @Injectable()
 export class userService{
@@ -39,6 +37,10 @@ export class userService{
         })
         return this._http.put(this.url+'user/'+userToUpdate._id, params, {headers: headers}).map(res=>res.json())
     }
+
+    getKeepers(){
+        return this._http.get(this.url+'user/keepers').map(res => res.json())
+      }
 
     getIdentity(){
         let identity = JSON.parse(localStorage.getItem('identity'))

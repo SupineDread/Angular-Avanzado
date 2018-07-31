@@ -14,7 +14,7 @@ export class ParquesComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
   @Input('longitud') metros: Number;
   public vegetacion: String;
   public abierto: boolean;
-  @Output() pasameDatos =  new EventEmitter();
+  @Output() pasameDatos = new EventEmitter();
 
   constructor() {
     this.nombre = "Parque de los venados"

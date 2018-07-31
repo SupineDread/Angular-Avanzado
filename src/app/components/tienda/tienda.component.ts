@@ -1,9 +1,6 @@
 import { fundido } from './../animation';
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations'
-//Se puede declarar jquery de manera global en typings.d.ts
-//declare var JQuery: any;
-//declare var $:any;
 
 @Component({
     selector: 'tienda',
@@ -28,6 +25,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 
 export class TiendaComponent implements OnInit{
+    
     public title:any;
     public nombreDelParque: String
     public miParque;
@@ -51,13 +49,7 @@ export class TiendaComponent implements OnInit{
     }
 
     ngOnInit(){
-        $('#textojq').hide()
-        $('#botonjq').click(function(){
-            console.log('click desde jquery')
-            $('#textojq').slideToggle()
-        })
 
-        $('#caja').dotdotdot([])
     }
 
     verDatosParque(event){
